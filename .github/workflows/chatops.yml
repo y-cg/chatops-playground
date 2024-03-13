@@ -11,4 +11,4 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           commands: |
-            ping
+            ping-local
