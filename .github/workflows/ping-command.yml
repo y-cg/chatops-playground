@@ -1,7 +1,7 @@
-name: ping-command
+name: Ping Command
 on:
   repository_dispatch:
-    types: [ping-command]
+    types: [ping-local-command]
 jobs:
   helloWorld:
     runs-on: ubuntu-latest
@@ -9,8 +9,6 @@ jobs:
       - name: Update comment
         uses: peter-evans/create-or-update-comment@v4
         with:
-          token: ${{ secrets.ACTIONS_BOT_TOKEN }}
-          repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
           comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
           body: |
             >pong ${{ github.event.client_payload.slash_command.args.all }}
