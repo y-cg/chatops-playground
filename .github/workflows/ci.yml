@@ -1,8 +1,6 @@
-name: Slash Command Dispatch
+name: CI
 on:
   push:
-  issue_comment:
-    types: [created]
 jobs:
   ci:
     runs-on: ubuntu-22.04

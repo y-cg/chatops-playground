@@ -9,6 +9,7 @@ jobs:
       - name: Update comment
         uses: peter-evans/create-or-update-comment@v4
         with:
+          token: ${{ secrets.PAT }}
           comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
           body: |
             >pong ${{ github.event.client_payload.slash_command.args.all }}
