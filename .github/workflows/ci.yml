@@ -1,0 +1,11 @@
+name: Slash Command Dispatch
+on:
+  push:
+  issue_comment:
+    types: [created]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        run: echo "hello!"
