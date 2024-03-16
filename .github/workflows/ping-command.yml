@@ -11,7 +11,6 @@ jobs:
       id: fc
       with:
         issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
-        comment-author: 'github-actions[bot]'
         body-includes: This comment was written by a bot!
 
     - name: Create comment
@@ -28,6 +27,7 @@ jobs:
       if: steps.fc.outputs.comment-id != ''
       uses: peter-evans/create-or-update-comment@v4
       with:
+        token: ${{ secrets.PAT }}
         comment-id: ${{ steps.fc.outputs.comment-id }}
         body: |
           This comment has been updated!
