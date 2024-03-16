@@ -10,7 +10,7 @@ jobs:
       uses: peter-evans/find-comment@v3
       id: fc
       with:
-        issue-number: ${{ github.event.pull_request.number }}
+        issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
         comment-author: 'github-actions[bot]'
         body-includes: This comment was written by a bot!
 
@@ -18,7 +18,7 @@ jobs:
       if: steps.fc.outputs.comment-id == ''
       uses: peter-evans/create-or-update-comment@v4
       with:
-        issue-number: ${{ github.event.pull_request.number }}
+        issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
         body: |
           This comment was written by a bot!
         reactions: rocket
