@@ -18,6 +18,7 @@ jobs:
       if: steps.fc.outputs.comment-id == ''
       uses: peter-evans/create-or-update-comment@v4
       with:
+        token: ${{ secrets.PAT }}
         issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
         body: |
           This comment was written by a bot!
